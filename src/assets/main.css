@@ -1,0 +1,18 @@
+@import "./base.css";
+
+h1{
+  color:red;
+}
+#cor1{
+  color: red;
+}
+main{
+  background-color: black;
+}
+h2{
+  color: #ffff;
+}
+img{
+  width: 300px;
+  height: 400px;
+}

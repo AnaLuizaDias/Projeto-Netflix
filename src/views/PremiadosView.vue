@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col-md-3">
           <img
-            src="@/assets/images/father.jpg"
+            src="@/assets/images/green.jpg"
             class="d-block w-100"
             alt="Foto 3"
             style="width: 100%"
@@ -52,7 +52,7 @@
         </div>
         <div class="col-md-3">
           <img
-            src="@/assets/images/tenet.jpg"
+            src="@/assets/images/moonlight.png"
             class="d-block w-100"
             alt="Foto 3"
             style="width: 100%"
@@ -60,7 +60,7 @@
         </div>
         <div class="col-md-3">
           <img
-            src="@/assets/images/another.jpg"
+            src="@/assets/images/parasita.jpg"
             class="d-block w-100"
             alt="Foto 3"
             style="width: 100%"
@@ -68,7 +68,7 @@
         </div>
         <div class="col-md-3">
           <img
-            src="@/assets/images/soul.jpg"
+            src="@/assets/images/bird.jpg"
             class="d-block w-100"
             alt="Foto 3"
             style="width: 100%"

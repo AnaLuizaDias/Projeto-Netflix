@@ -24,7 +24,7 @@
             style="--bs-scroll-height: 100px"
           >
             <li>
-              <router-link class="dropdown-item" to="/home"
+              <router-link class="dropdown-item" to="/"
                 >Home</router-link
               >
             </li>

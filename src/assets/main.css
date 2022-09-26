@@ -16,3 +16,13 @@ img{
   width: 300px;
   height: 400px;
 }
+#logonet{
+  width: 150px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 30px;
+  margin-bottom: 20px;
+}

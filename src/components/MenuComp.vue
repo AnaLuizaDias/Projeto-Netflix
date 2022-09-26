@@ -1,12 +1,9 @@
 <template>
   <div class="black">
-    <div class="nome text-center navbar-dark">
-      <h1>ANAFLIX</h1>
-    </div>
+    <img id="logonet" src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="">
     <br />
     <nav class="navbar navbar-expand-lg navbar-dark teste">
       <div class="container-fluid">
-        <a class="navbar-brand" id="cor1" href="#">ANAFLIX</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -24,9 +21,7 @@
             style="--bs-scroll-height: 100px"
           >
             <li>
-              <router-link class="dropdown-item" to="/"
-                >Home</router-link
-              >
+              <router-link class="dropdown-item" to="/">Home</router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Em alta</a>
@@ -48,9 +43,7 @@
                 aria-labelledby="navbarScrollingDropdown"
               >
                 <li>
-                  <router-link class="dropdown-item" to="/series"
-                    >Séries</router-link
-                  >
+                  <router-link class="dropdown-item" to="/series">Séries</router-link>
                 </li>
                 <li>
                   <router-link class="dropdown-item" to="/filmes"
@@ -74,10 +67,10 @@
             <input
               class="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar"
               aria-label="Search"
             />
-            <button class="btn btn-outline-danger" type="submit">Search</button>
+            <button class="btn btn-outline-danger" type="submit">Pesquisar</button>
           </form>
         </div>
       </div>

@@ -30,7 +30,7 @@
       </div>
       <div class="col-md-3">
         <img
-          src="@/assets/images/atypical.jpeg"
+          src="@/assets/images/jd.jpg"
           class="d-block w-100"
           alt="Foto 3"
           style="width: 100%"

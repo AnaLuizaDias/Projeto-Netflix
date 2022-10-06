@@ -6,6 +6,7 @@ export default {
     return {
       genres: [],
       dramas: [],
+      details: [],
     };
   },
   async created() {
@@ -14,29 +15,40 @@ export default {
         "https://api.themoviedb.org/3/genre/movie/list?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
       );
       this.genres = data.genres;
-      const res  = await axios.get("https://api.themoviedb.org/3/discover/movie?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=18&with_watch_monetization_types=flatrate")
-      this.dramas = res.data.results
+      const res = await axios.get(
+        "https://api.themoviedb.org/3/discover/movie?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=18&with_watch_monetization_types=flatrate"
+      );
+      this.dramas = res.data.results;
+      const details = await axios.get(
+        "https://api.themoviedb.org/3/movie/661791?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
+      );
+      this.details = details.data;
     } catch (e) {
       alert("algo errado");
     }
   },
   methods: {
     getImageUrl(path) {
-      return `https://image.tmdb.org/t/p/w500/${path}`
-    }
-  }
+      return `https://image.tmdb.org/t/p/w500/${path}`;
+    },
+    async getMovies(path) {
+      return `https://api.themoviedb.org/3/movie/661791?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br${path}`;
+    },
+  },
 };
 </script>
 
 <template>
   <div class="container" id="filmes">
     <h2>FILMES fofos</h2>
-    <h3 v-for="genre of genres" :key="genre.id"> {{ genre.name }}</h3>
-    {{ dramas }}
+    <h3 v-for="genre of genres" :key="genre.id">{{ genre.name }}</h3>
+    <!-- {{ dramas }} -->
   </div>
   <div class="container">
+    BLAH BLAH BLAH
+    {{ details }}
     <div v-for="drama of dramas" :key="drama.id">
-      {{ drama.title}}
+      {{ drama.title }}
       <img :src="getImageUrl(drama.poster_path)" alt="" />
     </div>
   </div>

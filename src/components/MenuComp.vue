@@ -1,3 +1,53 @@
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      genres_tv: [],
+      genres_movies: [],
+      dramas: [],
+      details: [],
+    };
+  },
+  async created() {
+    try {
+      const { data } = await axios.get(
+        "https://api.themoviedb.org/3/genre/tv/list?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
+      );
+      this.genres_tv = data.genres;
+      const res = await axios.get(
+        "https://api.themoviedb.org/3/genre/movie/list?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
+        // "https://api.themoviedb.org/3/discover/movie?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=18&with_watch_monetization_types=flatrate"
+      );
+      this.genres_movies = res.data.genres;
+      const resultado = await axios.get(
+        "https://api.themoviedb.org/3/genre/movie/list?api_key=ed777039147c6c57657810892e0b2acd&language=pt-brhttps://api.themoviedb.org/3/collection/27?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
+      );
+      this.dramas = res.data.results;
+      const details = await axios.get(
+        "https://api.themoviedb.org/3/movie/661791?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
+      );
+      this.details = details.data;
+    } catch (e) {
+      alert("algo errado");
+    }
+  },
+  methods: {
+    getImageUrl(path) {
+      return `https://image.tmdb.org/t/p/w500/${path}`;
+    },
+    async getMovies(path) {
+      return `https://api.themoviedb.org/3/movie/661791?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br${path}`;
+    },
+    mostrarFilmePorGenero(genre) {
+      console.log(genre.id)
+      this.$router.push(`/filmes/${genre.id}`)
+    }
+  },
+};
+</script>
+
 <template>
   <div class="black">
     <img id="logonet" src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="">
@@ -36,29 +86,34 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Assistir
+                Séries
               </a>
               <ul
                 class="dropdown-menu"
                 aria-labelledby="navbarScrollingDropdown"
               >
                 <li>
-                  <router-link class="dropdown-item" to="/series">Séries</router-link>
+                  <ul v-for="genre of genres_tv" :key="genre.id">{{ genre.name }}</ul>
                 </li>
-                <li>
-                  <router-link class="dropdown-item" to="/filmes"
-                    >Filmes</router-link
-                  >
-                </li>
-                <li>
-                  <router-link class="dropdown-item" to="/documentarios"
-                    >Documentarios</router-link
-                  >
-                </li>
-                <li>
-                  <router-link class="dropdown-item" to="/premiados"
-                    >Premiados</router-link
-                  >
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarScrollingDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Filmes
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarScrollingDropdown"
+              >
+              <li>
+                  <ul @click="mostrarFilmePorGenero(genre)" v-for="genre of genres_movies" :key="genre.id">{{ genre.name }}</ul>
                 </li>
               </ul>
             </li>

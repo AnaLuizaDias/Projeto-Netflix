@@ -13,9 +13,10 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/filmes",
+      path: "/filmes/:id",
       name: "filmes",
       component: FilmesView,
+      props: true,
     },
     {
       path: "/series",

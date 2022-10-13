@@ -1,81 +1,43 @@
+<script>
+import axios from "axios";
+export default {
+  props: ["id"],
+  data() {
+    return {
+      series: []
+    };
+  },
+  methods: {
+    async buscarSeriesPorGenero(genero) {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/genre/tv/list?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br`
+      );
+      this.series = res.data.results;
+    },
+    getImageUrl(poster_path) {
+      return `https://image.tmdb.org/t/p/w500/${poster_path}`;
+    },
+  },
+  async created() {
+    await this.buscarSeriesPorGenero(this.id);
+  },
+  watch: {
+    async id() {
+      await this.buscarSeriesPorGenero(this.id);
+    },
+  },
+};
+</script>
+
 <template>
   <div class="container" id="series">
-    <h2>SÉRIES</h2>
+    <h2>SERIES - {{ id }}</h2>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/bb1.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
+      <div class="col" v-for="serie of series" :key="serie.id">
+        <img :src="getImageUrl(serie.poster_path)" />
       </div>
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/peaky.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
-      </div>
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/better.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
-      </div>
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/jd.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
-      </div>
-      <br /><br />
     </div>
-  </div>
-  <br> <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/theoffice.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
-      </div>
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/cobrakai.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
-      </div>
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/modernfamily.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
-      </div>
-      <div class="col-md-3">
-        <img
-          src="@/assets/images/gg.jpg"
-          class="d-block w-100"
-          alt="Foto 3"
-          style="width: 100%"
-        />
-      </div>
-      <br /><br />
-    </div>
-    <br> <br>
   </div>
 </template>

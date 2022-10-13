@@ -42,8 +42,15 @@ export default {
     },
     mostrarFilmePorGenero(genre) {
       console.log(genre.id)
-      this.$router.push(`/filmes/${genre.id}`)
-    }
+      this.$router.push(`/filmes/${genre.id}`);
+    },
+    async getSeries(path) {
+      return `https://api.themoviedb.org/3/tv/661791?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br${path}`;
+    },
+    mostrarSeriePorGenero(genre) {
+      console.log(genre.id)
+      this.$router.push(`/series/${genre.id}`);
+    },
   },
 };
 </script>
@@ -93,7 +100,7 @@ export default {
                 aria-labelledby="navbarScrollingDropdown"
               >
                 <li>
-                  <ul v-for="genre of genres_tv" :key="genre.id">{{ genre.name }}</ul>
+                  <ul @click="mostrarSeriePorGenero(genre)" v-for="genre of genres_tv" :key="genre.id">{{ genre.name }}</ul>
                 </li>
               </ul>
             </li>
@@ -114,7 +121,7 @@ export default {
               >
               <li>
                   <ul @click="mostrarFilmePorGenero(genre)" v-for="genre of genres_movies" :key="genre.id">{{ genre.name }}</ul>
-                </li>
+              </li>
               </ul>
             </li>
           </ul>

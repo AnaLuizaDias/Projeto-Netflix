@@ -19,7 +19,7 @@ const router = createRouter({
       props: true,
     },
     {
-      path: "/series",
+      path: "/series/:id",
       name: "series",
       component: SeriesView,
     },

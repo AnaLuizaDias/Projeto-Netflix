@@ -4,13 +4,13 @@ export default {
   props: ["id"],
   data() {
     return {
-      series: []
+      series: [],
     };
   },
   methods: {
     async buscarSeriesPorGenero(genero) {
       const res = await axios.get(
-        `https://api.themoviedb.org/3/genre/tv/list?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br`
+        `https://api.themoviedb.org/3/discover/tv?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_genres=${genero}&with_watch_monetization_types=flatrate`
       );
       this.series = res.data.results;
     },
@@ -35,7 +35,7 @@ export default {
   </div>
   <div class="container">
     <div class="row">
-      <div class="col" v-for="serie of series" :key="serie.id">
+      <div class="col mt-4" v-for="serie of series" :key="serie.id">
         <img :src="getImageUrl(serie.poster_path)" />
       </div>
     </div>

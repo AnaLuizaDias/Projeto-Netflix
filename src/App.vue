@@ -1,13 +1,11 @@
 <script setup>
 import CabecalhoComp from "@/components/CabecalhoComp.vue";
-import RodapeComp from "@/components/RodapeComp.vue";
 </script>
 <template>
   <CabecalhoComp />
   <main>
     <RouterView />
   </main>
-  <RodapeComp />
 </template>
 
 <style>

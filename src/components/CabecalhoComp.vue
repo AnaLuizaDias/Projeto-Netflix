@@ -2,7 +2,7 @@
 import MenuComp from "@/components/MenuComp.vue";
 </script>
 <template>
-    <div class="menu-direito">
-      <MenuComp />
-    </div>
+  <div class="menu-direito">
+    <MenuComp />
+  </div>
 </template>

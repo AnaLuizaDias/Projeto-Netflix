@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import FilmesView from "@/views/FilmesView.vue";
 import SeriesView from "@/views/SeriesView.vue";
+import DetailsView from "@/views/DetailsView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -22,6 +23,12 @@ const router = createRouter({
       component: SeriesView,
       props: true,
     },
+    {
+      path: "/serie/:id",
+      name: "serieDetail",
+      component: DetailsView,
+      props: true,
+    }
   ],
 });
 

@@ -17,6 +17,9 @@ export default {
     getImageUrl(poster_path) {
       return `https://image.tmdb.org/t/p/w500/${poster_path}`;
     },
+    go(id) {
+      this.$router.push(`/serie/:id`)
+    }
   },
   async created() {
     await this.buscarSeriesPorGenero(this.id);
@@ -35,7 +38,7 @@ export default {
   </div>
   <div class="container">
     <div class="row">
-      <div class="col mt-4" v-for="serie of series" :key="serie.id">
+      <div class="col mt-4" v-for="serie of series" :key="serie.id" @click="go(serie.id)">
         <img :src="getImageUrl(serie.poster_path)" />
       </div>
     </div>

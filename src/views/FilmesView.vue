@@ -17,6 +17,9 @@ export default {
     getImageUrl(poster_path) {
       return `https://image.tmdb.org/t/p/w500/${poster_path}`;
     },
+    go(id) {
+      this.$router.push(`/filme/${id}`)
+    }
   },
   async created() {
     await this.buscarFilmesPorGenero(this.id);

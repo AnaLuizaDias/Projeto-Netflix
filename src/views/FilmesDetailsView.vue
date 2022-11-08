@@ -8,13 +8,11 @@ export default {
     };
   },
   methods: {
-    
     getImageUrl(poster_path) {
       return `https://image.tmdb.org/t/p/w500/${poster_path}`;
-    },    
+    },
   },
-}
-
+};
 </script>
 
 <template>

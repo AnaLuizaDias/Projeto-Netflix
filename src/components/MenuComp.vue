@@ -82,7 +82,7 @@ export default {
             style="--bs-scroll-height: 100px"
           >
             <li>
-              <router-link class="dropdown-item oi" to="/">Home</router-link>
+              <router-link class="nav-link " to="/">Home</router-link>
             </li>
             <li class="nav-item dropdown">
               <a

@@ -38,7 +38,7 @@ export default {
   </div>
   <div class="container">
     <div class="row">
-      <div class="col mt-4" v-for="filme of filmes" :key="filme.id">
+      <div class="col mt-4" v-for="filme of filmes" :key="filme.id" @click="go(filme.id)">
         <img :src="getImageUrl(filme.poster_path)" />
       </div>
     </div>

@@ -30,7 +30,7 @@ export default {
             <img :src="getImageUrl(filme.poster_path)" />
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class=" texto">
           <h1 class="display-5 fw-bold lh-1 mb-3">
             Responsive left-aligned hero with image
           </h1>
@@ -40,7 +40,12 @@ export default {
             featuring Sass variables and mixins, responsive grid system,
             extensive prebuilt components, and powerful JavaScript plugins.
           </p>
+          
+          <div class="img col-lg-4">
+            <img src="https://s2.glbimg.com/0g5TjC-0T1ZEkGG6Vh697NKwTnA=/0x0:1200x700/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/o/D/ieDFWBTXyor9nFgYZdyA/enola-holmes-2.jpg" alt="">
+          </div>
         </div>
+        
       </div>
     </div>
   </main>
@@ -58,5 +63,14 @@ main {
 }
 template {
   background-color: black;
+}
+.img{
+  display: flex;
+  width: 30%;
+  
+}
+.texto{
+  display: flex;
+  
 }
 </style>

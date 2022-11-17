@@ -23,21 +23,39 @@ export default {
 
 <template>
   <main>
-    <div class="texto">
-      <!-- {{ serieinfo }} -->
-      <h1 class="display-5 fw-bold lh-1 mb-3">
-        {{ serieinfo.title || serieinfo.name }}
-      </h1>
-      <h5 class="d-flex justify-content-end"> Sinopse: {{ serieinfo.overview }}</h5>
-      <h3>Número de temporadas:{{ serieinfo.number_of_seasons }}</h3>
-
-      <img :src="getImageUrl(serieinfo.poster_path)" class="card-img-top" alt="..." />
+    <!-- {{ serieinfo }} -->
+    <h1 class="display-2 fw-bold lh-1 mb-2">
+      {{ serieinfo.title || serieinfo.name }}
+    </h1>
+    <h6>
+      Número de temporadas:{{ serieinfo.number_of_seasons }} <br />
+      Número de episódios:{{ serieinfo.number_of_episodes }}
+    </h6>
+    <div class="sinopse">
+      <h5 class="d-flex justify-content-end">
+        Sinopse: {{ serieinfo.overview }}
+      </h5>
+    </div>
+    <div class="imagem">
+      <img
+        :src="getImageUrl(serieinfo.poster_path)"
+        class="card-img-top"
+        alt="..."
+      />
     </div>
   </main>
 </template>
 <style scoped>
 h1 {
   color: #fff;
+  display: flex;
+  width: 100%;
+  padding-left: 100px;
+  padding-top: 100px;
+}
+h6 {
+  padding-left: 100px;
+  padding-top: 20px;
 }
 p {
   color: rgb(149, 148, 148);
@@ -49,11 +67,21 @@ main {
 template {
   background-color: black;
 }
-.img {
+.imagem {
   display: flex;
-  width: 30%;
+  width: 20%;
 }
 .texto {
   display: flex;
+  padding: 90px;
+}
+h5 {
+  padding: 50px;
+}
+.sinopse {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  padding-left: 50px;
 }
 </style>

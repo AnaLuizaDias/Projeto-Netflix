@@ -18,7 +18,7 @@ export default {
       return `https://image.tmdb.org/t/p/w500/${poster_path}`;
     },
     go(id) {
-      this.$router.push(`/serie/:id`)
+      this.$router.push(`/serie/${id}`)
     }
   },
   async created() {

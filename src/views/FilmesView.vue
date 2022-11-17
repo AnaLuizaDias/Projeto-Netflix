@@ -34,7 +34,7 @@ export default {
 
 <template>
   <div class="container" id="filmes">
-    <h2>FILMES - {{ id }}</h2>
+    <h2>FILMES - {{ id}}</h2>
   </div>
   <div class="container">
     <div class="row">

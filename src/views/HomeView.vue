@@ -23,12 +23,17 @@ export default {
       // const ress = await axios.get(
       //   "https://api.themoviedb.org/3/genre/tv/list?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
       // );
+    
       this.dramas = res.data.results;
       const details = await axios.get(
         "https://api.themoviedb.org/3/movie/661791?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br"
       );
       this.details = details.data;
-    } catch (e) {
+    }
+
+    
+
+    catch (e) {
       alert("algo errado");
     }
   },
@@ -42,6 +47,9 @@ export default {
     async getSeries(path) {
       return `https://api.themoviedb.org/3/tv/661791?api_key=ed777039147c6c57657810892e0b2acd&language=pt-br${path}`;
     },
+    go(id) {
+      this.$router.push(`/serie/${id}`)
+    }
   },
 };
 </script>
@@ -52,7 +60,7 @@ export default {
   </div>
   <div class="container">
     <div class="row">
-      <div class="col mt-4" v-for="drama of dramas.slice(0, 8)" :key="drama.id">
+      <div class="col mt-4" v-for="drama of dramas.slice(0, 8)" :key="drama.id" @click="go(drama.id)">
         <img :src="getImageUrl(drama.poster_path)" alt="" />
       </div>
     </div>

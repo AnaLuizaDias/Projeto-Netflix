@@ -35,7 +35,7 @@ const router = createRouter({
       name: "filmeDetail",
       component: FilmesDetailsView,
       props: true,
-    }
+    },
   ],
 });
 

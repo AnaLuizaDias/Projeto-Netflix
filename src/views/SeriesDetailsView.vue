@@ -24,25 +24,25 @@ export default {
 <template>
   <main>
     <!-- {{ serieinfo }} -->
-    <h1 class="display-2 fw-bold lh-1 mb-2">
-      {{ serieinfo.title || serieinfo.name }}
-    </h1>
-    <h6>
-      Número de temporadas:{{ serieinfo.number_of_seasons }} <br />
-      Número de episódios:{{ serieinfo.number_of_episodes }}
-    </h6>
-    <div class="sinopse">
-      <h5 class="d-flex justify-content-end">
-        Sinopse: {{ serieinfo.overview }}
-      </h5>
+    <div class="container my-5 principal">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">{{ serieinfo.title || serieinfo.name }}</h1>
+        <p class="lead">{{ serieinfo.overview }}</p>
+        <p class="lead">Número de temporadas:{{ serieinfo.number_of_seasons }}</p>
+        <p class="lead">Número de episódios:{{ serieinfo.number_of_episodes }}</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Elenco</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trailer</button>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img :src="getImageUrl(serieinfo.poster_path)"
+        class="col mt-4"
+        alt="...">
+      </div>
     </div>
-    <div class="imagem">
-      <img
-        :src="getImageUrl(serieinfo.poster_path)"
-        class="card-img-top"
-        alt="..."
-      />
-    </div>
+  </div>
   </main>
 </template>
 <style scoped>
@@ -50,8 +50,6 @@ h1 {
   color: #fff;
   display: flex;
   width: 100%;
-  padding-left: 100px;
-  padding-top: 100px;
 }
 h6 {
   padding-left: 100px;
@@ -67,21 +65,17 @@ main {
 template {
   background-color: black;
 }
-.imagem {
-  display: flex;
-  width: 20%;
-}
-.texto {
-  display: flex;
-  padding: 90px;
-}
-h5 {
-  padding: 50px;
-}
+
 .sinopse {
   display: flex;
   width: 40%;
   justify-content: center;
   padding-left: 50px;
+}
+.principal{
+  padding-bottom:5.3% ;
+}
+img {
+  margin: 8%;
 }
 </style>

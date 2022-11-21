@@ -1,7 +1,9 @@
 <script>
 import axios from "axios";
 import ElencoFilmeComp from "@/components/ElencoFilmeComp.vue";
+import TrailerComp from "@/components/TrailerComp.vue";
 export default {
+  components: { ElencoFilmeComp, TrailerComp },
   props: ["id"],
   data() {
     return {
@@ -37,18 +39,20 @@ export default {
         <p class="lead">Tempo de duração: {{ filmeinfo.runtime }} minutos</p>
         <p class="lead"> Data de lançamento: {{filmeinfo.release_date}}</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Elenco</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trailer</button>
+          <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Elenco</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trailer</button> -->
         </div>
-        <video src="video"></video>
-        <video :src="getVideoUrl(filmeinfo.poster_path)"></video>
+        <!-- <video src="video"></video>
+        <video :src="getVideoUrl(filmeinfo.poster_path)"></video> -->
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
           <img :src="getImageUrl(filmeinfo.poster_path) "
         class="col mt-4"
         alt="...">
       </div>
-      <ElencoFilmeComp />
+
+      
+      <ElencoFilmeComp :id="id" />
     </div>
   </div>
   </main>

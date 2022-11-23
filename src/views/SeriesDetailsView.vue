@@ -1,6 +1,9 @@
 <script>
 import axios from "axios";
+import ElencoSerieComp from "@/components/ElencoSerieComp.vue";
+import TrailerComp from "@/components/TrailerComp.vue";
 export default {
+  components: { ElencoSerieComp, TrailerComp },
   props: ["id"],
   data() {
     return {
@@ -25,24 +28,31 @@ export default {
   <main>
     <!-- {{ serieinfo }} -->
     <div class="container my-5 principal">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1">{{ serieinfo.title || serieinfo.name }}</h1>
-        <p class="lead">{{ serieinfo.overview }}</p>
-        <p class="lead">Número de temporadas:{{ serieinfo.number_of_seasons }}</p>
-        <p class="lead">Número de episódios:{{ serieinfo.number_of_episodes }}</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Elenco</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trailer</button>
+      <div
+        class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+      >
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="display-4 fw-bold lh-1">
+            {{ serieinfo.title || serieinfo.name }}
+          </h1>
+          <p class="lead">{{ serieinfo.overview }}</p>
+          <p class="lead">
+            Número de temporadas:{{ serieinfo.number_of_seasons }}
+          </p>
+          <p class="lead">
+            Número de episódios:{{ serieinfo.number_of_episodes }}
+          </p>
         </div>
-      </div>
-      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-          <img :src="getImageUrl(serieinfo.poster_path)"
-        class="col mt-4"
-        alt="...">
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img
+            :src="getImageUrl(serieinfo.poster_path)"
+            class="col mt-4"
+            alt="..."
+          />
+        </div>
+        <ElencoSerieComp :id="id" />
       </div>
     </div>
-  </div>
   </main>
 </template>
 <style scoped>
@@ -72,8 +82,8 @@ template {
   justify-content: center;
   padding-left: 50px;
 }
-.principal{
-  padding-bottom:5.3% ;
+.principal {
+  padding-bottom: 5.3%;
 }
 img {
   margin: 8%;

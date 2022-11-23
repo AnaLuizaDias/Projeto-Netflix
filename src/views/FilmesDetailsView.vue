@@ -29,32 +29,40 @@ export default {
 
 <template>
   <main>
-    {{ filmeinfo.video}}
+    {{ filmeinfo.video }}
     {{ filmeinfo }}
     <div class="container my-5 principal">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1">{{ filmeinfo.title || filmeinfo.name }}</h1>
-        <p class="lead">{{ filmeinfo.overview }}</p>
-        <p class="lead">Tempo de duração: {{ filmeinfo.runtime }} minutos</p>
-        <p class="lead"> Data de lançamento: {{filmeinfo.release_date}}</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Elenco</button>
+      <div
+        class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+      >
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="display-4 fw-bold lh-1">
+            {{ filmeinfo.title || filmeinfo.name }}
+          </h1>
+          <p class="lead">{{ filmeinfo.overview }}</p>
+          <p class="lead">Tempo de duração: {{ filmeinfo.runtime }} minutos</p>
+          <p class="lead">Data de lançamento: {{ filmeinfo.release_date }}</p>
+          <div
+            class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3"
+          >
+            <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Elenco</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trailer</button> -->
-        </div>
-        <!-- <video src="video"></video>
+          </div>
+          <!-- <video src="video"></video>
         <video :src="getVideoUrl(filmeinfo.poster_path)"></video> -->
-      </div>
-      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-          <img :src="getImageUrl(filmeinfo.poster_path) "
-        class="col mt-4"
-        alt="...">
-      </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img
+            :src="getImageUrl(filmeinfo.poster_path)"
+            class="col mt-4"
+            alt="..."
+          />
+        </div>
 
-      
-      <ElencoFilmeComp :id="id" />
+        <ElencoFilmeComp :id="id" />
+        <TrailerComp :id="id" />
+      </div>
     </div>
-  </div>
   </main>
 </template>
 

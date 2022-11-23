@@ -5,7 +5,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      elencofilme: {},
+      elencoserie: {},
     };
   },
   async created() {
@@ -14,9 +14,10 @@ export default {
   methods: {
     async getElenco() {
       const { data } = await axios.get(
-        `https://api.themoviedb.org/3/movie/${this.id}/credits?api_key=ed777039147c6c57657810892e0b2acd&language=pt-BR`
+        `https://api.themoviedb.org/3/tv/${this.id}/credits?api_key=ed777039147c6c57657810892e0b2acd&language=pt-BR
+`
       );
-      this.elencofilme = data;
+      this.elencoserie = data;
     },
   },
   watch: {
@@ -61,7 +62,7 @@ export default {
           ></button>
         </div>
         <div class="modal-body">
-          <p v-for="ator of elencofilme.cast" :key="ator.cast_id">
+          <p v-for="ator of elencoserie.cast" :key="ator.cast_id">
             {{ ator.name }} 
           </p>
         </div>
@@ -77,8 +78,14 @@ export default {
       </div>
     </div>
   </div>
-  
-
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+  >
+    Visualizar Trailer
+  </button>
 </template>
 <style scoped>
 button {

@@ -1,9 +1,9 @@
 <script>
 import axios from "axios";
 import ElencoSerieComp from "@/components/ElencoSerieComp.vue";
-import TrailerComp from "@/components/TrailerComp.vue";
+import TrailerSerieComp from "@/components/TrailerSerieComp.vue";
 export default {
-  components: { ElencoSerieComp, TrailerComp },
+  components: { ElencoSerieComp, TrailerSerieComp },
   props: ["id"],
   data() {
     return {
@@ -51,6 +51,7 @@ export default {
           />
         </div>
         <ElencoSerieComp :id="id" />
+        <TrailerSerieComp :id="id" />
       </div>
     </div>
   </main>
@@ -69,7 +70,7 @@ p {
   color: rgb(149, 148, 148);
 }
 main {
-  padding: 30px;
+  padding: 60px;
   background-color: black;
 }
 template {

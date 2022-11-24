@@ -1,30 +1,23 @@
 <script>
-import axios from "axios";
 export default {
-  props: ["id"],
-  data() {
+  props: ["id", "results"],
+  data()
+  if (results > 0){
+    return key
+  }
     return {
-      elencoserie: {},
+      trailerfilme: {},
     };
   },
   async created() {
     await this.getElenco();
   },
   methods: {
-    async getElenco() {
-      const { data } = await axios.get(
-        `https://api.themoviedb.org/3/tv/${this.id}/credits?api_key=ed777039147c6c57657810892e0b2acd&language=pt-BR
-`
-      );
-      this.elencoserie = data;
+    getVideoUrl(key) {
+      return `https://www.youtube.com/embed/${key}`;
     },
   },
-  watch: {
-    async id() {
-      await this.getElenco();
-    },
-  },
-};
+;
 </script>
 
 <template>
@@ -32,26 +25,22 @@ export default {
     type="button"
     class="btn btn-danger"
     data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
+    data-bs-target="#exampleModal"
   >
-    Visualizar elenco
+    Visualizar Trailer
   </button>
 
   <div
     class="modal fade"
-    id="staticBackdrop"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
+    id="exampleModal"
     tabindex="-1"
-    aria-labelledby="staticBackdropLabel"
+    aria-labelledby="exampleModalLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">
-            Lista do elenco:
-          </h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Trailer</h1>
           <button
             type="button"
             class="btn-close"
@@ -60,9 +49,9 @@ export default {
           ></button>
         </div>
         <div class="modal-body">
-          <p v-for="ator of elencoserie.cast" :key="ator.cast_id">
-            {{ ator.name }}
-          </p>
+          <div class="modal-body2">
+            <iframe width="465" height="315" :src="getVideoUrl()"> </iframe>
+          </div>
         </div>
         <div class="modal-footer">
           <button
@@ -81,10 +70,6 @@ export default {
 button {
   width: 15%;
   margin: 10px;
-  margin-left: 45px;
   margin-bottom: 20px;
-}
-h1 {
-  color: black;
 }
 </style>

@@ -1,9 +1,9 @@
 <script>
 import axios from "axios";
 import ElencoFilmeComp from "@/components/ElencoFilmeComp.vue";
-import TrailerComp from "@/components/TrailerComp.vue";
+import TrailerFilmeComp from "@/components/TrailerFilmeComp.vue";
 export default {
-  components: { ElencoFilmeComp, TrailerComp },
+  components: { ElencoFilmeComp, TrailerFilmeComp },
   props: ["id"],
   data() {
     return {
@@ -29,8 +29,6 @@ export default {
 
 <template>
   <main>
-    {{ filmeinfo.video }}
-    {{ filmeinfo }}
     <div class="container my-5 principal">
       <div
         class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
@@ -44,12 +42,7 @@ export default {
           <p class="lead">Data de lançamento: {{ filmeinfo.release_date }}</p>
           <div
             class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3"
-          >
-            <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Elenco</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trailer</button> -->
-          </div>
-          <!-- <video src="video"></video>
-        <video :src="getVideoUrl(filmeinfo.poster_path)"></video> -->
+          ></div>
         </div>
         <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
           <img
@@ -58,9 +51,8 @@ export default {
             alt="..."
           />
         </div>
-
         <ElencoFilmeComp :id="id" />
-        <TrailerComp :id="id" />
+        <TrailerFilmeComp :id="id" />
       </div>
     </div>
   </main>
@@ -74,7 +66,8 @@ p {
   color: rgb(149, 148, 148);
 }
 main {
-  padding: 30px;
+  padding: 60px;
+
   background-color: black;
 }
 template {

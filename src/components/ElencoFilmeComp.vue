@@ -1,6 +1,5 @@
 <script>
 import axios from "axios";
-import { watch } from "@vue/runtime-core";
 export default {
   props: ["id"],
   data() {
@@ -28,10 +27,9 @@ export default {
 </script>
 
 <template>
-  <h1>Aqui mostrarei o elenco {{ id }}</h1>
   <button
     type="button"
-    class="btn btn-primary"
+    class="btn btn-danger"
     data-bs-toggle="modal"
     data-bs-target="#staticBackdrop"
   >
@@ -84,6 +82,8 @@ export default {
 button {
   width: 15%;
   margin: 10px;
+  margin-left: 45px;
+  margin-bottom: 20px;
 }
 h1{
   color: black;

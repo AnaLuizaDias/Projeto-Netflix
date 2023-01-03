@@ -1,14 +1,11 @@
 <script>
 export default {
   props: ["id", "results"],
-  data()
-  if (results > 0){
-    return key
-  }
+  data() {
     return {
-      trailerfilme: {},
+      trailer: [],
     };
-  },
+},
   async created() {
     await this.getElenco();
   },
@@ -17,7 +14,7 @@ export default {
       return `https://www.youtube.com/embed/${key}`;
     },
   },
-;
+};
 </script>
 
 <template>
